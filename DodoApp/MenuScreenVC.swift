@@ -7,7 +7,7 @@
 import UIKit
 import SnapKit
 
-class MenuScreenVC: UIViewController {
+final class MenuScreenVC: UIViewController {
     
     let productService = ProductService()
     
@@ -21,8 +21,8 @@ class MenuScreenVC: UIViewController {
     // смена цвета tableView работает в lazy
     lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .yellow
         tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.identifire)
+        tableView.register(BannerCell.self, forCellReuseIdentifier: BannerCell.identifire)
         tableView.delegate = self
         tableView.dataSource = self
         return tableView
@@ -58,16 +58,45 @@ class MenuScreenVC: UIViewController {
 
 extension MenuScreenVC: UITableViewDataSource, UITableViewDelegate {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        products.count
+        switch section {
+        case 0: return 1
+        case 1: return products.count
+        default: return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.identifire, for: indexPath) as? ProductCell else { return UITableViewCell() }
         
-        let product = products[indexPath.row]
-
-        cell.update(product: product)
-        return cell
+        switch indexPath.section {
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.identifire, for: indexPath) as? ProductCell else { return UITableViewCell() }
+            return cell
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.identifire, for: indexPath) as? ProductCell else { return
+                UITableViewCell() }
+            
+            let product = products[indexPath.row]
+            cell.update(product: product)
+            return cell
+        default:
+            return UITableViewCell()
+        }
+        
+        
+        
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRow = products[indexPath.row]
+        
+        let productVC = ProductVC()
+//        productVC.productService.products = selectedRow
+        present(productVC, animated: true)
     }
 }

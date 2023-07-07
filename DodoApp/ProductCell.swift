@@ -11,33 +11,46 @@ class ProductCell: UITableViewCell {
     
     static let identifire = "ProductCell"
     
-    var productLabel: UILabel = {
+    var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Test"
         return label
     }()
     
     var pizzaImageView: UIImageView = {
         let pizzaImageView = UIImageView()
-        
+        pizzaImageView.contentMode = .scaleAspectFill
         return pizzaImageView
     }()
     
     var descriptionLabel: UILabel = {
         let descriptionLabel = UILabel()
-
+        descriptionLabel.numberOfLines = 0
         return descriptionLabel
     }()
     
     var buyButton: UIButton = {
         let buyButton = UIButton()
-        
+        buyButton.backgroundColor = .orange.withAlphaComponent(0.3)
+        buyButton.layer.cornerRadius = 10
         return buyButton
+    }()
+    
+    lazy var verticalStackView: UIStackView = {
+        let verticalStackView = UIStackView()
+        verticalStackView.axis = .vertical
+        verticalStackView.spacing = 15
+        verticalStackView.alignment = .leading
+        return verticalStackView
+    }()
+    
+    lazy var horizontalStackView: UIStackView = {
+        let horizontalStackView = UIStackView()
+        horizontalStackView.axis = .horizontal
+        return horizontalStackView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         setupViews()
         setupConstraints()
         
@@ -49,41 +62,60 @@ class ProductCell: UITableViewCell {
     
     
     func update(product: Product) {
-        buyButton.setTitle("\(product.price)", for: .normal)
-        productLabel.text = product.name
+        buyButton.setTitle("\(product.price) ₽", for: .normal)
+        nameLabel.text = product.name
         descriptionLabel.text = product.detail
         pizzaImageView.image = UIImage(named: product.image)
         
     }
     
-    func setupViews() {
-        contentView.addSubview(productLabel)
-        contentView.addSubview(pizzaImageView)
-        contentView.addSubview(descriptionLabel)
-        contentView.addSubview(buyButton)
+    private func setupViews() {
+        contentView.addSubview(horizontalStackView)
+        horizontalStackView.addArrangedSubview(verticalStackView)
+        
+        horizontalStackView.addArrangedSubview(pizzaImageView)
+        
+        verticalStackView.addArrangedSubview(nameLabel)
+        verticalStackView.addArrangedSubview(descriptionLabel)
+        verticalStackView.addArrangedSubview(buyButton)
+//        contentView.addSubview(productLabel)
+//        contentView.addSubview(pizzaImageView)
+//        contentView.addSubview(descriptionLabel)
+//        contentView.addSubview(buyButton)
 
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         
-        pizzaImageView.snp.makeConstraints { make in
-            make.left.top.bottom.equalTo(contentView).inset(20)
+        horizontalStackView.snp.makeConstraints { make in
+            make.left.top.bottom.equalTo(contentView).offset(0)
             make.width.height.equalTo(150)
         }
-        productLabel.snp.makeConstraints { make in
+        
+        verticalStackView.snp.makeConstraints { make in
+            make.top.right.bottom.equalTo(horizontalStackView).offset(20)
+            make.left.equalTo(horizontalStackView.snp.right).offset(20)
+        }
+        pizzaImageView.snp.makeConstraints { make in
+            make.left.top.bottom.equalTo(horizontalStackView).inset(5)
+            make.width.height.equalTo(150)
+        }
+        nameLabel.snp.makeConstraints { make in
             make.left.equalTo(pizzaImageView.snp.right).offset(20)
             make.top.right.equalTo(contentView).inset(20)
         }
         descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(productLabel.snp.bottom).offset(20)
+            make.top.equalTo(nameLabel.snp.bottom).offset(10)
             make.left.equalTo(pizzaImageView.snp.right).offset(20)
             make.right.equalTo(contentView).inset(20)
         }
-        
+
         buyButton.snp.makeConstraints { make in
-            make.top.equalTo(descriptionLabel.snp.bottom).inset(20)
-            make.left.equalTo(pizzaImageView.snp.right).inset(20)
-            make.bottom.equalTo(contentView.snp.bottom).inset(20)
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(10)
+            make.left.equalTo(pizzaImageView.snp.right).offset(20)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-20)
+            make.width.equalTo(60)
+            make.height.equalTo(35)
         }
     }
 }
