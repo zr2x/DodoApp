@@ -14,13 +14,16 @@ class BannerCollectionViewCell: UICollectionViewCell {
     var descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "Вкусно и выгодно"
-        label.backgroundColor = .black
-
+        label.font = .boldSystemFont(ofSize: 20)
+        label.backgroundColor = .red
+        label.textAlignment = .center
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupViews()
+        setupConstraints()
         
     }
     
@@ -29,11 +32,14 @@ class BannerCollectionViewCell: UICollectionViewCell {
     }
     private func setupViews() {
         contentView.addSubview(descriptionLabel)
+        
     }
     
     private func setupConstraints() {
         descriptionLabel.snp.makeConstraints { make in
-            make.edges.equalTo(contentView)
+            make.top.equalTo(contentView.snp.top).offset(5)
+            make.left.right.bottom.equalTo(contentView)
+            
         }
     }
 }

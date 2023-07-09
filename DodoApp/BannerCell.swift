@@ -11,7 +11,7 @@ class BannerCell: UITableViewCell {
     
     static let identifire = "BannerCell"
     
-    var bannerView: UIView = {
+    var containerView: UIView = {
         let bannerView = UIView()
         bannerView.backgroundColor = .orange
         return bannerView
@@ -28,10 +28,14 @@ class BannerCell: UITableViewCell {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.65, height: UIScreen.main.bounds.width * 0.25)
-        let bannerCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        layout.minimumInteritemSpacing = 10
+        var bannerCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         bannerCollectionView.delegate = self
         bannerCollectionView.dataSource = self
         bannerCollectionView.register(BannerCollectionViewCell.self, forCellWithReuseIdentifier: BannerCollectionViewCell.identifire)
+        bannerCollectionView.backgroundColor = .cyan
+        
+        bannerCollectionView.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         return bannerCollectionView
     }()
     
@@ -46,18 +50,26 @@ class BannerCell: UITableViewCell {
     }
     
     private func setupViews() {
-        contentView.addSubview(bannerView)
-        bannerView.addSubview(titleLabel)
+        contentView.addSubview(containerView)
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(bannerCollectionView)
     }
     
     private func setupConstraints() {
-        bannerView.snp.makeConstraints { make in
+        containerView.snp.makeConstraints { make in
             make.edges.equalTo(contentView)
             make.height.width.equalTo(150)
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.left.top.right.equalTo(bannerView).inset(16)
+            make.left.top.right.equalTo(containerView).inset(16)
+        }
+        
+        bannerCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(30)
+            make.right.equalTo(containerView.snp.right).offset(-10)
+            make.left.bottom.equalTo(containerView).offset(10)
+            
         }
         
     }
@@ -67,11 +79,13 @@ class BannerCell: UITableViewCell {
 
 extension BannerCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCollectionViewCell.identifire, for: indexPath) as? BannerCollectionViewCell else { return UICollectionViewCell() }
+        
+        
         return cell
             
     }
