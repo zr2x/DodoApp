@@ -11,6 +11,8 @@ class BannerCell: UITableViewCell {
     
     static let identifire = "BannerCell"
     
+    var products: [Product] = []
+    
     var containerView: UIView = {
         let bannerView = UIView()
         bannerView.backgroundColor = .orange
@@ -68,26 +70,30 @@ class BannerCell: UITableViewCell {
         bannerCollectionView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(30)
             make.right.equalTo(containerView.snp.right).offset(-10)
-            make.left.bottom.equalTo(containerView).offset(10)
+            make.left.bottom.equalTo(containerView).inset (10)
             
         }
         
     }
     
-}
+    func update(_ products: [Product]) {
+        self.products
+    }
 
+    
+}
 
 extension BannerCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCollectionViewCell.identifire, for: indexPath) as? BannerCollectionViewCell else { return UICollectionViewCell() }
-        
-        
+        let product = products[indexPath.row]
+        cell.update(product)
         return cell
-            
+        
     }
     
     
