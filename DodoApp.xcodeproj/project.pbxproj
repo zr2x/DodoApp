@@ -22,6 +22,7 @@
 		C04410762A56E01600BD40F8 /* ProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04410752A56E01600BD40F8 /* ProductVC.swift */; };
 		C04410792A58441100BD40F8 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04410782A58441100BD40F8 /* BannerCell.swift */; };
 		C044107B2A59BE9500BD40F8 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C044107A2A59BE9500BD40F8 /* BannerCollectionViewCell.swift */; };
+		C0C352B72A60308D003239C8 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C352B62A60308D003239C8 /* CartVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		C04410752A56E01600BD40F8 /* ProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVC.swift; sourceTree = "<group>"; };
 		C04410782A58441100BD40F8 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		C044107A2A59BE9500BD40F8 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		C0C352B62A60308D003239C8 /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,9 +135,10 @@
 		C024E2C62A52EFD30099FEC0 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				C04410742A56DFF500BD40F8 /* Product */,
 				C044106E2A558B0500BD40F8 /* MenuTabBar.swift */,
+				C04410742A56DFF500BD40F8 /* Product */,
 				C024E2C42A52EB960099FEC0 /* Menu */,
+				C0C352B52A603069003239C8 /* Cart */,
 				C04410702A558EDA00BD40F8 /* Profile */,
 			);
 			path = Screens;
@@ -180,6 +183,14 @@
 				C04410782A58441100BD40F8 /* BannerCell.swift */,
 			);
 			name = Banner;
+			sourceTree = "<group>";
+		};
+		C0C352B52A603069003239C8 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				C0C352B62A60308D003239C8 /* CartVC.swift */,
+			);
+			name = Cart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 			files = (
 				C024E2A72A52DEF50099FEC0 /* MenuScreenVC.swift in Sources */,
 				C044107B2A59BE9500BD40F8 /* BannerCollectionViewCell.swift in Sources */,
+				C0C352B72A60308D003239C8 /* CartVC.swift in Sources */,
 				C04410792A58441100BD40F8 /* BannerCell.swift in Sources */,
 				C024E2C12A52EAA50099FEC0 /* ProductService.swift in Sources */,
 				C044106F2A558B0500BD40F8 /* MenuTabBar.swift in Sources */,
