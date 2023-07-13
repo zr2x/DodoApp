@@ -75,12 +75,6 @@ class BannerCell: UITableViewCell {
         }
         
     }
-    
-    func update(_ products: [Product]) {
-        self.products
-    }
-
-    
 }
 
 extension BannerCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
