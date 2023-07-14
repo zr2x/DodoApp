@@ -37,15 +37,19 @@ class MenuTabBar: UITabBarController {
         navController.tabBarItem.title = title
         navController.tabBarItem.image = image
         navController.viewControllers.first?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Москва", style: .plain, target: nil, action: #selector(cityAction))
+        navController.viewControllers.first?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: nil, action: #selector(searchAction))
         return navController
     }
     
     @objc func cityAction() {
-        let message = "Москва /n Казань"
+        let message = "Москва\nКазань"
         let allert = UIAlertController(title: "Выберите ваш город", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Выбрать", style: .default)
         allert.addAction(action)
         present(allert, animated: true)
-//        allert.
+    }
+    
+    @objc private func searchAction() {
+        
     }
 }

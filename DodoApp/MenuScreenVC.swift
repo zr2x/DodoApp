@@ -10,12 +10,15 @@ import SnapKit
 final class MenuScreenVC: UIViewController {
     
     let productService = ProductService()
+    let categoryService = CategoryService()
     
     var products: [Product] = [] {
         didSet {
             tableView.reloadData()
         }
     }
+    
+    private var category: [Category] = []
     
     //клоужерная инициализация отрабатывает 1 раз (если нужно многократное создание объектов, нужно переписать на функцию
     // смена цвета tableView работает в lazy
