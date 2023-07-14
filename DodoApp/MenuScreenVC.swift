@@ -7,6 +7,12 @@
 import UIKit
 import SnapKit
 
+enum MenuSection: Int, CaseIterable {
+    case banner
+    case category
+    case products
+}
+
 final class MenuScreenVC: UIViewController {
     
     let productService = ProductService()
@@ -18,7 +24,7 @@ final class MenuScreenVC: UIViewController {
         }
     }
     
-    private var category: [Category] = []
+    private var categories: [Category] = []
     
     //клоужерная инициализация отрабатывает 1 раз (если нужно многократное создание объектов, нужно переписать на функцию
     // смена цвета tableView работает в lazy
@@ -26,6 +32,7 @@ final class MenuScreenVC: UIViewController {
         let tableView = UITableView()
         tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.identifire)
         tableView.register(BannerCell.self, forCellReuseIdentifier: BannerCell.identifire)
+        tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.identifire)
         tableView.delegate = self
         tableView.dataSource = self
         return tableView
@@ -62,30 +69,37 @@ final class MenuScreenVC: UIViewController {
 extension MenuScreenVC: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        2
+        MenuSection.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 1
-        case 1: return products.count
+        case 1: return categories.count
+        case 2: return products.count
         default: return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.section {
-        case 0:
+        let section = MenuSection(rawValue: indexPath.section)
+        switch section {
+        case .banner:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: BannerCell.identifire, for: indexPath) as? BannerCell else { return UITableViewCell() }
 //            cell.update(products)
             return cell
-        case 1:
+        case .products:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.identifire, for: indexPath) as? ProductCell else { return
                 UITableViewCell() }
             
             let product = products[indexPath.row]
             cell.update(product: product)
+            return cell
+        case . category:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifire, for: indexPath) as? CategoryTableViewCell else { return UITableViewCell() }
+            let category = categories[indexPath.row]
+            cell.update(category)
             return cell
         default:
             return UITableViewCell()
