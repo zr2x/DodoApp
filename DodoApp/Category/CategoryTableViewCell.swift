@@ -12,49 +12,53 @@ class CategoryTableViewCell: UITableViewCell {
     
     static let identifire = "CategoryTableViewCell"
     
+    var categories: [Category] = []
     
-    var container: UIView = {
+    
+    var containerView: UIView = {
         let view = UIView()
         view.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        //        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 13
+    
         return view
     }()
     
-    var categoryButton: UIButton = {
-        let categoryButton = UIButton()
-        categoryButton.backgroundColor = .lightGray
-        return categoryButton
+    lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        return collectionView
     }()
     
-    func update(_ category: Category) {
-        categoryButton.setTitle(category.name, for: .normal)
-    }
+
+    
+    
+   
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupViews()
-        setupConstraints()
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupViews() {
-        contentView.addSubview(container)
-        container.addSubview(categoryButton)
+   
+    
+  
+}
+
+extension CategoryTableViewCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        categories.count
     }
     
-    private func setupConstraints() {
-        container.snp.makeConstraints { make in
-            make.edges.equalTo(contentView)
-        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        categoryButton.snp.makeConstraints { make in
-            make.top.bottom.equalTo(container)
-            make.height.equalTo(35)
-            make.width.equalTo(60)
-        }
     }
+    
+    
 }

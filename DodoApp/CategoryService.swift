@@ -9,11 +9,16 @@ import Foundation
 
 class CategoryService {
     
-    var catergory = [Category(name: "Пицца"),Category(name: "Комбо"),Category(name: "Коктейли"),Category(name: "Кофе"),Category(name: "Закуски"),Category(name: "Десерты")]
+    var catergories = [Category(name: "Пицца"),
+                       Category(name: "Комбо"),
+                       Category(name: "Коктейли"),
+                       Category(name: "Кофе"),
+                       Category(name: "Закуски"),
+                       Category(name: "Десерты")]
     
     
     func fetch() -> [Category] {
-        return catergory
+        return catergories
     }
     
 }

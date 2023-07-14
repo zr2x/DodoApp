@@ -64,6 +64,10 @@ final class MenuScreenVC: UIViewController {
     func fetchProducts() {
         products = productService.fetch()
     }
+    
+    func fetchCategories(categories: [Category]) {
+        self.categories = categories
+    }
 }
 
 extension MenuScreenVC: UITableViewDataSource, UITableViewDelegate {
@@ -89,6 +93,7 @@ extension MenuScreenVC: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: BannerCell.identifire, for: indexPath) as? BannerCell else { return UITableViewCell() }
 //            cell.update(products)
             return cell
+            
         case .products:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.identifire, for: indexPath) as? ProductCell else { return
                 UITableViewCell() }
@@ -96,6 +101,7 @@ extension MenuScreenVC: UITableViewDataSource, UITableViewDelegate {
             let product = products[indexPath.row]
             cell.update(product: product)
             return cell
+            
         case . category:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifire, for: indexPath) as? CategoryTableViewCell else { return UITableViewCell() }
             let category = categories[indexPath.row]

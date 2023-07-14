@@ -26,7 +26,7 @@
 		C0C352BC2A617D9A003239C8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C352BB2A617D9A003239C8 /* Category.swift */; };
 		C0C352BE2A617E34003239C8 /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C352BD2A617E34003239C8 /* CategoryService.swift */; };
 		C0C352C12A6181FF003239C8 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C352C02A6181FF003239C8 /* CategoryTableViewCell.swift */; };
-		C0C352C52A618840003239C8 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C352C42A618840003239C8 /* CategoryTableViewController.swift */; };
+		C0C352C72A61987B003239C8 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C352C62A61987B003239C8 /* CategoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +50,7 @@
 		C0C352BB2A617D9A003239C8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		C0C352BD2A617E34003239C8 /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		C0C352C02A6181FF003239C8 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
-		C0C352C42A618840003239C8 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		C0C352C62A61987B003239C8 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,7 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				C0C352C02A6181FF003239C8 /* CategoryTableViewCell.swift */,
-				C0C352C42A618840003239C8 /* CategoryTableViewController.swift */,
+				C0C352C62A61987B003239C8 /* CategoryCollectionViewCell.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -290,10 +290,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0C352C72A61987B003239C8 /* CategoryCollectionViewCell.swift in Sources */,
 				C024E2A72A52DEF50099FEC0 /* MenuScreenVC.swift in Sources */,
 				C0C352C12A6181FF003239C8 /* CategoryTableViewCell.swift in Sources */,
 				C044107B2A59BE9500BD40F8 /* BannerCollectionViewCell.swift in Sources */,
-				C0C352C52A618840003239C8 /* CategoryTableViewController.swift in Sources */,
 				C0C352B72A60308D003239C8 /* CartVC.swift in Sources */,
 				C0C352BE2A617E34003239C8 /* CategoryService.swift in Sources */,
 				C04410792A58441100BD40F8 /* BannerCell.swift in Sources */,
