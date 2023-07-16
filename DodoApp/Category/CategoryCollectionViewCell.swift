@@ -6,13 +6,15 @@
 //
 
 import UIKit
-
+import Dispatch
 class CategoryCollectionViewCell: UICollectionViewCell {
+    
+    static let identifire = "CategoryCollectionViewCell"
     
     var containerView: UIView = {
         let view = UIView()
-        view.heightAnchor.constraint(equalToConstant: 40).isActive = true
-    
+//        view.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//        view.backgroundColor = .yellow
         return view
     }()
     
@@ -51,8 +53,9 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             make.edges.equalTo(containerView)
         }
         
-        func update(_ category: Category) {
-            categoryButton.setTitle(category.name, for: .normal)
-        }
+    }
+    
+    func update(_ category: Category) {
+        categoryButton.setTitle(category.name, for: .normal)
     }
 }

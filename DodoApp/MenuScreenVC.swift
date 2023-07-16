@@ -104,8 +104,7 @@ extension MenuScreenVC: UITableViewDataSource, UITableViewDelegate {
             
         case . category:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.identifire, for: indexPath) as? CategoryTableViewCell else { return UITableViewCell() }
-            let category = categories[indexPath.row]
-            cell.update(category)
+            cell.update(categories)
             return cell
         default:
             return UITableViewCell()
