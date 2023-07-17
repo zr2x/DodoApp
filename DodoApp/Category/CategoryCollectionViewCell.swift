@@ -35,7 +35,22 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-//
+    private func setupViews() {
+        contentView.addSubview(containerView)
+        containerView.addSubview(categoryButton)
+    }
+    
+    private func setupConstraints() {
+        containerView.snp.makeConstraints { make in
+            make.edges.equalTo(contentView)
+        }
+        
+        categoryButton.snp.makeConstraints { make in
+
+            make.edges.equalTo(containerView)
+        }
+        
+    }
     
     func update(_ category: Category) {
         categoryButton.setTitle(category.name, for: .normal)
