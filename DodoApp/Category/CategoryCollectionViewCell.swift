@@ -13,8 +13,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     var containerView: UIView = {
         let view = UIView()
-//        view.heightAnchor.constraint(equalToConstant: 40).isActive = true
-//        view.backgroundColor = .yellow
+
         return view
     }()
     
@@ -47,9 +46,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         }
         
         categoryButton.snp.makeConstraints { make in
-//            make.top.bottom.equalTo(containerView)
-//            make.height.equalTo(35)
-//            make.width.equalTo(60)
+
             make.edges.equalTo(containerView)
         }
         
