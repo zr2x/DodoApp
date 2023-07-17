@@ -19,7 +19,6 @@ class ProductVC: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 60, height: 60)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//        collectionView.delegate =
         collectionView.delegate = self
         collectionView.dataSource = self
         return collectionView
@@ -31,8 +30,6 @@ class ProductVC: UIViewController {
         view.backgroundColor = .yellow
         product = productService.fetch()
     }
-    
-
 }
 
 
@@ -47,6 +44,4 @@ extension ProductVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSou
         
         return cell
     }
-    
-    
 }

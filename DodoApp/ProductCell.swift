@@ -72,9 +72,7 @@ class ProductCell: UITableViewCell {
     private func setupViews() {
         contentView.addSubview(horizontalStackView)
         horizontalStackView.addArrangedSubview(verticalStackView)
-        
         horizontalStackView.addArrangedSubview(pizzaImageView)
-        
         verticalStackView.addArrangedSubview(nameLabel)
         verticalStackView.addArrangedSubview(descriptionLabel)
         verticalStackView.addArrangedSubview(buyButton)
@@ -118,4 +116,5 @@ class ProductCell: UITableViewCell {
             make.height.equalTo(35)
         }
     }
+    
 }

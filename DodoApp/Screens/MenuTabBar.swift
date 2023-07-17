@@ -15,8 +15,7 @@ class MenuTabBar: UITabBarController {
         setupTabBar()
  
     }
-    
-    
+
     //MARK: Setup TabBar
     private func setupTabBar() {
         

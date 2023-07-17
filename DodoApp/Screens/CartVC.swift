@@ -13,7 +13,5 @@ class CartVC: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .cyan
-        
     }
-
 }

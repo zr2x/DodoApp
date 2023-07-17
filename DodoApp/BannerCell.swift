@@ -73,11 +73,11 @@ class BannerCell: UITableViewCell {
             make.left.bottom.equalTo(containerView).inset (10)
             
         }
-        
     }
 }
 
 extension BannerCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return products.count
     }
@@ -89,6 +89,4 @@ extension BannerCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSo
         return cell
         
     }
-    
-    
 }

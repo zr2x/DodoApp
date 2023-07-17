@@ -109,17 +109,13 @@ extension MenuScreenVC: UITableViewDataSource, UITableViewDelegate {
         default:
             return UITableViewCell()
         }
-        
-        
-        
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedRow = products[indexPath.row]
-        
-        let productVC = ProductVC()
+//        let selectedRow = products[indexPath.row]
+//
+//        let productVC = ProductVC()
 //        productVC.productService.products = selectedRow
-        present(productVC, animated: true)
+//        present(productVC, animated: true)
     }
 }

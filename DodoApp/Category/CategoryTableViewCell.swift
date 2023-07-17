@@ -47,7 +47,6 @@ class CategoryTableViewCell: UITableViewCell {
     func update(_ categories: [Category]) {
         self.categories = categories
     }
-    
    
     private func setupViews() {
         contentView.addSubview(containerView)
@@ -63,7 +62,6 @@ class CategoryTableViewCell: UITableViewCell {
             make.edges.equalTo(containerView)
         }
     }
-  
 }
 
 extension CategoryTableViewCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -73,11 +71,9 @@ extension CategoryTableViewCell: UICollectionViewDelegateFlowLayout, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "identifire", for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifire, for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell() }
         let category = categories[indexPath.row]
         cell.update(category)
         return cell
-    }
-    
-    
+    } 
 }

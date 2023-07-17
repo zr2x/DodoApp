@@ -11,15 +11,6 @@ class BannerCollectionViewCell: UICollectionViewCell {
     
     static let identifire = "BannerCollectionViewCell"
     
-    //    private var descriptionLabel: UILabel = {
-    //        let label = UILabel()
-    //        label.text = "Вкусно и выгодно"
-    //        label.font = .boldSystemFont(ofSize: 20)
-    //        label.backgroundColor = .red
-    //        label.textAlignment = .center
-    //        return label
-    //    }()
-    
     private var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "пепперони фреш"
@@ -75,9 +66,6 @@ class BannerCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(nameLabel.snp.bottom).offset(18)
             make.left.equalTo(nameLabel)
         }
-        
-         
-        
     }
     
     func update(_ product: Product) {

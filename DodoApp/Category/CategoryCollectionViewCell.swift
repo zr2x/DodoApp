@@ -6,14 +6,15 @@
 //
 
 import UIKit
-import Dispatch
+
 class CategoryCollectionViewCell: UICollectionViewCell {
     
     static let identifire = "CategoryCollectionViewCell"
     
     var containerView: UIView = {
         let view = UIView()
-
+        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        view.layer.cornerRadius = 13
         return view
     }()
     
@@ -23,14 +24,13 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         return categoryButton
     }()
     
-    
     override init(frame: CGRect) {
+        
         super.init(frame: frame)
         setupViews()
         setupConstraints()
-        
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -46,10 +46,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         }
         
         categoryButton.snp.makeConstraints { make in
-
             make.edges.equalTo(containerView)
         }
-        
     }
     
     func update(_ category: Category) {
