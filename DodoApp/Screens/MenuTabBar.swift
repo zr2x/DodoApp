@@ -15,6 +15,10 @@ class MenuTabBar: UITabBarController {
         setupTabBar()
  
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        tabBar.tintColor = .lightGray
+    }
 
     //MARK: Setup TabBar
     private func setupTabBar() {

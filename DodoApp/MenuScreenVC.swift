@@ -17,7 +17,7 @@ final class MenuScreenVC: UIViewController {
     
     let productService = ProductService()
     let categoryService = CategoryService()
-    
+//    let tabBarCont = MenuTabBar()
     var products: [Product] = [] {
         didSet {
             tableView.reloadData()
@@ -35,6 +35,7 @@ final class MenuScreenVC: UIViewController {
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.identifire)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: tabBarController?.tabBar.frame.height ?? 0, right: 0)
         return tableView
     }()
     
@@ -58,6 +59,7 @@ final class MenuScreenVC: UIViewController {
     private func setupConstraints() {
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
+        
         }
     }
     
