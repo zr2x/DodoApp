@@ -17,7 +17,6 @@ class MenuTabBar: UITabBarController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        tabBar.tintColor = .lightGray
     }
 
     //MARK: Setup TabBar
@@ -30,9 +29,6 @@ class MenuTabBar: UITabBarController {
         
         self.setViewControllers([menu, profile, cart], animated: true)
         view.backgroundColor = .white
-        
-//        self.tabBar.barTintColor = .lightGray // окраска самого tabBar
-//        self.tabBar.tintColor = .orange // окраска кнопок
         
     }
     
