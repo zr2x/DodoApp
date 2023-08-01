@@ -53,7 +53,7 @@ class ProductCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
         setupConstraints()
-        
+        buyButton.addTarget(self, action: #selector(buyAction), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -76,11 +76,6 @@ class ProductCell: UITableViewCell {
         verticalStackView.addArrangedSubview(nameLabel)
         verticalStackView.addArrangedSubview(descriptionLabel)
         verticalStackView.addArrangedSubview(buyButton)
-//        contentView.addSubview(productLabel)
-//        contentView.addSubview(pizzaImageView)
-//        contentView.addSubview(descriptionLabel)
-//        contentView.addSubview(buyButton)
-
     }
     
     private func setupConstraints() {
@@ -117,4 +112,7 @@ class ProductCell: UITableViewCell {
         }
     }
     
+    @objc private func buyAction() {
+        print("press")
+    }
 }

@@ -15,10 +15,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = MenuTabBar()
+        
+        
+        
+        
+        window.rootViewController = setupMenuTabBar()
         self.window = window
         self.window?.makeKeyAndVisible()
     }
+    
+    func setupMenuTabBar() -> UITabBarController {
+        
+        let tabController = MenuTabBar()
+    
+        
+        if #available(iOS 15.0, *) {
+           let appearance = UITabBarAppearance()
+           appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .yellow
+           
+           tabController.tabBar.standardAppearance = appearance
+           tabController.tabBar.scrollEdgeAppearance = appearance
+        }
+        return tabController
+    }
+    
+    
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

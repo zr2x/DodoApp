@@ -23,6 +23,7 @@ class BannerCell: UITableViewCell {
         let titleLabel = UILabel()
         titleLabel.text = "Выгодно и вкусно"
         titleLabel.font = .boldSystemFont(ofSize: 20)
+        titleLabel.backgroundColor = .yellow
         return titleLabel
     }()
     
@@ -59,12 +60,13 @@ class BannerCell: UITableViewCell {
     
     private func setupConstraints() {
         containerView.snp.makeConstraints { make in
-            make.edges.equalTo(contentView)
+            make.edges.equalTo(contentView.safeAreaLayoutGuide)
             make.height.width.equalTo(150)
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.left.top.right.equalTo(containerView).inset(16)
+            make.left.right.equalTo(containerView)
+            make.top.equalTo(containerView).offset(50)
         }
         
         bannerCollectionView.snp.makeConstraints { make in

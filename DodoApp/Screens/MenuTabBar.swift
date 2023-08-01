@@ -31,26 +31,21 @@ class MenuTabBar: UITabBarController {
         self.setViewControllers([menu, profile, cart], animated: true)
         view.backgroundColor = .white
         
-        self.tabBar.barTintColor = .lightGray // окраска самого tabBar
-        self.tabBar.tintColor = .orange // окраска кнопок
+//        self.tabBar.barTintColor = .lightGray // окраска самого tabBar
+//        self.tabBar.tintColor = .orange // окраска кнопок
+        
     }
     
     private func createNavControllers(with title: String, and image: UIImage?, vc: UIViewController) -> UINavigationController {
         let navController = UINavigationController(rootViewController: vc)
         navController.tabBarItem.title = title
         navController.tabBarItem.image = image
-        navController.viewControllers.first?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Москва", style: .plain, target: nil, action: #selector(cityAction))
-        navController.viewControllers.first?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: nil, action: #selector(searchAction))
+        //FIXME: search button + method to fix
+//        navController.viewControllers.first?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: nil, action: #selector(searchAction))
         return navController
     }
     
-    @objc func cityAction() {
-        let message = "Москва\nКазань"
-        let allert = UIAlertController(title: "Выберите ваш город", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Выбрать", style: .default)
-        allert.addAction(action)
-        present(allert, animated: true)
-    }
+ 
     
     @objc private func searchAction() {
         

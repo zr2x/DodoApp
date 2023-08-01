@@ -11,7 +11,7 @@ class ProductVC: UIViewController {
     
     let productService = ProductService()
     
-    var product: [Product] = []
+    var product: Product?
     
     lazy var ingredientsColletionView: UICollectionView = {
         
@@ -28,7 +28,7 @@ class ProductVC: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .yellow
-        product = productService.fetch()
+//        product = productService.fetch()
     }
 }
 
@@ -36,7 +36,7 @@ class ProductVC: UIViewController {
 extension ProductVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        product.count
+        1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
