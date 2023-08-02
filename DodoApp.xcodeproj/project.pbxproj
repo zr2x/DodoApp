@@ -213,17 +213,17 @@
 			isa = PBXGroup;
 			children = (
 				C05CCD7A2A765725006FB0AB /* ProductTypeVC.swift */,
-				C05CCD7D2A765A9B006FB0AB /* ProductTypeCell */,
+				C05CCD7D2A765A9B006FB0AB /* Cell */,
 			);
 			name = ProductTypeVC;
 			sourceTree = "<group>";
 		};
-		C05CCD7D2A765A9B006FB0AB /* ProductTypeCell */ = {
+		C05CCD7D2A765A9B006FB0AB /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				C05CCD7E2A765ABC006FB0AB /* ProductTypeCell.swift */,
 			);
-			path = ProductTypeCell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		C0C352B52A603069003239C8 /* Cart */ = {

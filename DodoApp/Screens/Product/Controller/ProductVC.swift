@@ -27,8 +27,7 @@ class ProductVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .yellow
-//        product = productService.fetch()
+//        view.backgroundColor = .yellow
     }
 }
 

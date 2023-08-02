@@ -20,7 +20,9 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     var categoryButton: UIButton = {
         let categoryButton = UIButton()
-        categoryButton.backgroundColor = .lightGray
+        
+        categoryButton.layer.cornerRadius = 20
+        categoryButton.backgroundColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 0.7)
         return categoryButton
     }()
     
@@ -29,12 +31,14 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setupViews()
         setupConstraints()
+        categoryButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func setupViews() {
         contentView.addSubview(containerView)
         containerView.addSubview(categoryButton)
@@ -52,5 +56,14 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     func update(_ category: Category) {
         categoryButton.setTitle(category.name, for: .normal)
+    }
+  
+    
+    @objc private func buttonAction() {
+        if categoryButton.isHighlighted {
+            
+        } else {
+            categoryButton.backgroundColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 0.7)
+        }
     }
 }

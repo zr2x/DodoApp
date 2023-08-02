@@ -116,11 +116,11 @@ extension MenuScreenVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let product = products[indexPath.row]
 
-        let productVC = ProductVC()
+        let productVC = ProductTypeVC()
         productVC.product = product
-        
+//        productVC.modalPresentationStyle = .fullScreen
         present(productVC, animated: true)
-        modalPresentationStyle = .fullScreen
+        
         
     }
 }

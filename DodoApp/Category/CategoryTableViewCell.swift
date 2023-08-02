@@ -61,7 +61,9 @@ class CategoryTableViewCell: UITableViewCell {
         }
         
         collectionView.snp.makeConstraints { make in
-            make.edges.equalTo(containerView)
+//            make.edges.equalTo(containerView)
+            make.top.equalTo(containerView).inset(5)
+            make.left.right.bottom.equalTo(containerView)
         }
     }
 }
