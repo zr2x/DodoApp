@@ -17,7 +17,6 @@ class ProductTypeVC: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        //        tableView.backgroundColor =
         tableView.register(ProductTypeCell.self, forCellReuseIdentifier: ProductTypeCell.identifire)
         tableView.separatorStyle = .none
         return tableView
