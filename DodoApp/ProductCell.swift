@@ -113,6 +113,6 @@ class ProductCell: UITableViewCell {
     }
     
     @objc private func buyAction() {
-        print("press")
+        
     }
 }

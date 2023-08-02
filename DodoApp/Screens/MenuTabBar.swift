@@ -36,8 +36,6 @@ class MenuTabBar: UITabBarController {
         let navController = UINavigationController(rootViewController: vc)
         navController.tabBarItem.title = title
         navController.tabBarItem.image = image
-        //FIXME: search button + method to fix
-//        navController.viewControllers.first?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: nil, action: #selector(searchAction))
         return navController
     }
     

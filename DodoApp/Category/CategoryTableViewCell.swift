@@ -18,7 +18,6 @@ class CategoryTableViewCell: UITableViewCell {
     var containerView: UIView = {
         let view = UIView()
         view.heightAnchor.constraint(equalToConstant: 40).isActive = true
-    
         return view
     }()
     
@@ -45,7 +44,6 @@ class CategoryTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: ??
     func update(_ categories: [Category]) {
         self.categories = categories
     }
@@ -61,7 +59,6 @@ class CategoryTableViewCell: UITableViewCell {
         }
         
         collectionView.snp.makeConstraints { make in
-//            make.edges.equalTo(containerView)
             make.top.equalTo(containerView).inset(5)
             make.left.right.bottom.equalTo(containerView)
         }

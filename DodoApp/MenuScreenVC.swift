@@ -93,7 +93,6 @@ extension MenuScreenVC: UITableViewDataSource, UITableViewDelegate {
         switch section {
         case .banner:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: BannerCell.identifire, for: indexPath) as? BannerCell else { return UITableViewCell() }
-//            cell.update(products)
             return cell
             
         case .products:
