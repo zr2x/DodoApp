@@ -57,9 +57,9 @@ final class MenuScreenVC: UIViewController {
     }
     
     private func setupConstraints() {
+        
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
-        
         }
     }
     

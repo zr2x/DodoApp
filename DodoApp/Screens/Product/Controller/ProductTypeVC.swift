@@ -12,6 +12,20 @@ class ProductTypeVC: UIViewController {
     var product: Product?
     
     let productService = ProductService()
+
+    lazy var downButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        button.backgroundColor = .white
+//        button.layer.shadowColor = UIColor.black.cgColor
+//        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+//        button.layer.shadowRadius = 4
+        button.layer.borderColor = UIColor.lightGray.cgColor
+        button.layer.borderWidth = 2
+        button.layer.cornerRadius = button.frame.height / 2
+        button.clipsToBounds = true
+        return button
+    }()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -25,7 +39,7 @@ class ProductTypeVC: UIViewController {
     let containerView: UIView = {
         let container = UIView()
         container.backgroundColor = .orange
-        container.layer.cornerRadius = 10
+        container.layer.cornerRadius = 30
         return container
     }()
     
@@ -42,12 +56,14 @@ class ProductTypeVC: UIViewController {
         view.backgroundColor = .white
         setupViews()
         setupConstraints()
+        downButton.addTarget(self, action: #selector(dissMissAction), for: .touchUpInside)
     }
     
     
     private func setupViews() {
         view.addSubview(tableView)
         view.addSubview(containerView)
+        view.addSubview(downButton)
         containerView.addSubview(purchaseButton)
     }
     
@@ -59,15 +75,24 @@ class ProductTypeVC: UIViewController {
         }
         
         containerView.snp.makeConstraints { make in
-            make.left.right.bottom.equalTo(view).inset(10)
+            make.left.right.bottom.equalTo(view.safeAreaLayoutGuide).inset(10)
             make.height.equalTo(60)
         }
         
         purchaseButton.snp.makeConstraints { make in
             make.edges.equalTo(containerView)
         }
+        
+        downButton.snp.makeConstraints { make in
+            make.left.top.equalTo(view.safeAreaLayoutGuide).inset(15)
+            make.width.height.equalTo(45)
+        }
+   
     }
-    
+    @objc private func dissMissAction() {
+        
+        self.dismiss(animated: true)
+    }
 }
 
 

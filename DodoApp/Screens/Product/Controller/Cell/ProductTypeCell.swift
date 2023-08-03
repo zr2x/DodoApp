@@ -11,11 +11,15 @@ class ProductTypeCell: UITableViewCell {
     
     static let identifire = "ProductTypeCell"
     
+    //MARK: UI elements
     let pizzaImageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
+        
         return image
     }()
+    
+
     
     let pizzaNameLabel: UILabel = {
         let label = UILabel()
@@ -32,6 +36,7 @@ class ProductTypeCell: UITableViewCell {
     let removeIngridientsButton: UIButton = {
         let button = UIButton()
         button.setTitle("убрать ингридиенты", for: .normal)
+        button.backgroundColor = .lightGray
         return button
     }()
     
@@ -41,6 +46,7 @@ class ProductTypeCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
         setupConstraints()
+//        downButton.addTarget(self, action: #selector(dissMissAction), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -53,13 +59,16 @@ class ProductTypeCell: UITableViewCell {
 
     }
     
+    //MARK: add subviews
     private func setupViews() {
         contentView.addSubview(pizzaImageView)
+
         contentView.addSubview(pizzaNameLabel)
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(removeIngridientsButton)
     }
     
+    //MARK: constraints
     private func setupConstraints() {
         pizzaImageView.snp.makeConstraints { make in
             make.left.right.equalTo(contentView)
@@ -81,9 +90,10 @@ class ProductTypeCell: UITableViewCell {
         
         removeIngridientsButton.snp.makeConstraints { make in
             make.top.equalTo(descriptionLabel.snp.bottom).inset(10)
-            make.right.equalTo(contentView)
-            make.left.equalTo(contentView).offset(30)
+            make.left.right.equalTo(descriptionLabel)
         }
+        
+        
     }
     
     func update(_ product: Product) {
@@ -91,4 +101,6 @@ class ProductTypeCell: UITableViewCell {
         pizzaNameLabel.text = product.name
         descriptionLabel.text = product.detail
     }
+    
+    
 }
