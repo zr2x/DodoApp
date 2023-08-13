@@ -117,7 +117,7 @@ extension MenuScreenVC: UITableViewDataSource, UITableViewDelegate {
 
         let productVC = ProductTypeVC()
         productVC.product = product
-//        productVC.modalPresentationStyle = .fullScreen
+        productVC.modalPresentationStyle = .fullScreen
         present(productVC, animated: true)
         
         

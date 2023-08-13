@@ -13,19 +13,7 @@ class ProductTypeVC: UIViewController {
     
     let productService = ProductService()
 
-    lazy var downButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-        button.backgroundColor = .white
-//        button.layer.shadowColor = UIColor.black.cgColor
-//        button.layer.shadowOffset = CGSize(width: 0, height: 2)
-//        button.layer.shadowRadius = 4
-        button.layer.borderColor = UIColor.lightGray.cgColor
-        button.layer.borderWidth = 2
-        button.layer.cornerRadius = button.frame.height / 2
-        button.clipsToBounds = true
-        return button
-    }()
+    
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -51,26 +39,29 @@ class ProductTypeVC: UIViewController {
         return button
     }()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupViews()
         setupConstraints()
-        downButton.addTarget(self, action: #selector(dissMissAction), for: .touchUpInside)
+        
     }
     
     
     private func setupViews() {
         view.addSubview(tableView)
         view.addSubview(containerView)
-        view.addSubview(downButton)
+        
         containerView.addSubview(purchaseButton)
     }
     
     private func setupConstraints() {
         tableView.snp.makeConstraints { make in
-            make.top.left.right.equalTo(view)
-            make.height.equalTo(view.snp.height).multipliedBy(0.5)
+//            make.top.left.right.equalTo(view)
+//            make.height.equalTo(view.snp.height).multipliedBy(0.5) // half view
+            make.edges.equalTo(view)
             
         }
         
@@ -82,17 +73,8 @@ class ProductTypeVC: UIViewController {
         purchaseButton.snp.makeConstraints { make in
             make.edges.equalTo(containerView)
         }
-        
-        downButton.snp.makeConstraints { make in
-            make.left.top.equalTo(view.safeAreaLayoutGuide).inset(15)
-            make.width.height.equalTo(45)
-        }
-   
     }
-    @objc private func dissMissAction() {
-        
-        self.dismiss(animated: true)
-    }
+    
 }
 
 
@@ -112,6 +94,4 @@ extension ProductTypeVC: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    
 }
