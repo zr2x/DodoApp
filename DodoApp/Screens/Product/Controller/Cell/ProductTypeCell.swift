@@ -15,7 +15,6 @@ class ProductTypeCell: UITableViewCell {
     let pizzaImageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
-        
         return image
     }()
     
@@ -29,24 +28,22 @@ class ProductTypeCell: UITableViewCell {
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        
         return label
     }()
     
     let removeIngridientsButton: UIButton = {
         let button = UIButton()
         button.setTitle("убрать ингридиенты", for: .normal)
-        button.backgroundColor = .lightGray
+        button.setTitleColor(UIColor(red: 1.0, green: 0.8, blue: 0.6, alpha: 1.0), for: .normal)
         return button
     }()
     
     
-    
+    //MARK: init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
         setupConstraints()
-//        downButton.addTarget(self, action: #selector(dissMissAction), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -77,25 +74,27 @@ class ProductTypeCell: UITableViewCell {
         }
     
         pizzaNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(pizzaImageView.snp.bottom).inset(10)
-            make.right.equalTo(contentView)
+            make.top.equalTo(pizzaImageView.snp.bottom).inset(6)
             make.left.equalTo(contentView).offset(30)
+            make.right.equalTo(contentView).inset(30)
         }
         
         descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(pizzaNameLabel.snp.bottom).offset(10)
-            make.right.equalTo(contentView)
+            make.top.equalTo(pizzaNameLabel.snp.bottom).offset(6)
             make.left.equalTo(contentView).offset(30)
+            make.right.equalTo(contentView).inset(30)
+
         }
         
         removeIngridientsButton.snp.makeConstraints { make in
-            make.top.equalTo(descriptionLabel.snp.bottom).inset(10)
-            make.left.right.equalTo(descriptionLabel)
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(6)
+            make.left.equalTo(contentView).offset(30)
+            make.width.equalTo(180)
+            make.height.equalTo(20)
         }
-        
-        
     }
     
+    //MARK: update method
     func update(_ product: Product) {
         pizzaImageView.image = UIImage(named: product.image)
         pizzaNameLabel.text = product.name
