@@ -14,7 +14,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
-        view.layer.cornerRadius = 13
+        view.layer.cornerRadius = 20
         return view
     }()
     

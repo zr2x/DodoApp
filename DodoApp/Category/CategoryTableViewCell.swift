@@ -24,7 +24,10 @@ class CategoryTableViewCell: UITableViewCell {
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 100, height: 40)
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.minimumLineSpacing = 10
+//        layout.itemSize = CGSize(width: 100, height: 20)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
@@ -59,8 +62,8 @@ class CategoryTableViewCell: UITableViewCell {
         }
         
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(containerView).inset(5)
-            make.left.right.bottom.equalTo(containerView)
+//            make.top.equalTo(containerView).inset(5)
+            make.top.left.right.bottom.equalTo(containerView)
         }
     }
 }

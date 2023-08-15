@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if #available(iOS 15.0, *) {
            let appearance = UITabBarAppearance()
            appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = .lightGray
+            appearance.backgroundColor = .white
            
            tabController.tabBar.standardAppearance = appearance
            tabController.tabBar.scrollEdgeAppearance = appearance
